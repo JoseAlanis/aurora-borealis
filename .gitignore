@@ -1,7 +1,47 @@
-# test files
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# pytest cache
+.pytest_cache/
+
+# Coverage reports
+.coverage
+coverage.xml
+htmlcov/
+bash-coverage/
+
+# Logs
+*.log
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+
+# Ignore built/test folders not needed in repo
+dist/
+build/
+*.egg-info/
+
+# Ignore local Docker mounts or temp files
+/tmp/
+
+# other files
 subject_ids.tsv
 dicominfo_ses-001.tsv
 test-code.sh
-
-# JetBrains
-.idea
