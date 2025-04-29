@@ -15,17 +15,17 @@ usage() {
   echo "Optional:"
   echo "  --overwrite      Whether to force overwriting output (true/false). Default: false."
   echo "  --help           Show this help message and exit."
-  exit 1
+  exit "${1:-1}"  # default to exit 1 unless given another exit code
 }
 
 # Check for help early
 if [[ "$1" == "--help" ]]; then
-  usage
+  usage 0
 fi
 
 # Check if at least 3 arguments are passed
 if [ "$#" -lt 3 ]; then
-  usage
+  usage 1
 fi
 
 # Parse required arguments
@@ -51,7 +51,7 @@ while [[ "$#" -gt 0 ]]; do
       ;;
     *)
       echo "Unknown parameter passed: $1"
-      usage
+      usage 1
       ;;
   esac
 done
@@ -78,7 +78,7 @@ for subject in "${subjects[@]}"; do
     docker_command=(
       sudo docker run --rm -it
       -v "${volume_path}":/base
-      nipy/heudiconv:latest
+      nipy/heudiconv:1.3.3
       -d /base/bidsdata/sourcedata/${subject}/${session}/*
       -o /base/bidsdata/
       -f /base/heuristic.py
