@@ -1,0 +1,7 @@
+# test files
+subject_ids.tsv
+dicominfo_ses-001.tsv
+test-code.sh
+
+# JetBrains
+.idea
