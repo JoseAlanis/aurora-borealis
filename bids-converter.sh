@@ -79,7 +79,7 @@ for subject in "${subjects[@]}"; do
       sudo docker run --rm -it
       -v "${volume_path}":/base
       nipy/heudiconv:1.3.3
-      -d /base/bidsdata/sourcedata/${subject}/${session}/*
+      -d /base/bidsdata/sourcedata/{subject}/{session}/A/*
       -o /base/bidsdata/
       -f /base/heuristic.py
       -s ${subject}
